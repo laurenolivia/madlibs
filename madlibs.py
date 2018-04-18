@@ -2,7 +2,7 @@
 
 from random import choice
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 # "__name__" is a special Python variable for the name of the current module.
 # Flask wants to know this to know what any imported things are relative to.
@@ -50,7 +50,7 @@ def show_madlib_form():
     elif request.args.get("yesno") == "yes":
         return render_template("game.html")
     else:
-        return render_template("compliment.html")
+        return redirect('/greet')
 
 
 @app.route('/madlib')
